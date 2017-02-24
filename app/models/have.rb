@@ -1,2 +1,2 @@
-class Have < ActiveRecord::Base
+class Have < Ownership
 end
