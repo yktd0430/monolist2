@@ -1,5 +1,10 @@
 class OwnershipsController < ApplicationController
   before_action :logged_in_user
+  
+def show
+  @item = Item.find(params[:item_code])
+  @count = @item.count
+end
 
   def create
     if params[:item_code]
@@ -23,6 +28,16 @@ class OwnershipsController < ApplicationController
       @item.detail_page_url = item['itemUrl']
       @item.save!
     end
+    
+    def wants
+       @items = @item.want_items(params[:type])
+    end
+    
+    def haves
+       @items = @item.have_items(params[:type])
+    end
+    
+      
 
     # TODO ユーザにwant or haveを設定する
     # params[:type]の値にHaveボタンが押された時には「Have」,

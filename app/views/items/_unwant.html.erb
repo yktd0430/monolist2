@@ -1,6 +1,5 @@
-<%= link_to "" , 
-    ownership_path(current_user.wants.find_by(:item_id => item.id) , 
-      item_id: item.id , type: "Want") ,
-    :class => "want-#{item.id} btn-want btn btn-danger btn-sm want_it",
+<%= link_to "unwant" , ownership_path(current_user.wants.find_by(:item_id => item.id) ,  
+      item_id: item.id , type: "Want It") ,
+    :class => "want-#{item.id} btn-want btn btn-danger btn-sm want",
     :remote => true,
     :method => :delete %>
